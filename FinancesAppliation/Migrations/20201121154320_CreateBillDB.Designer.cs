@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinancesAppDLL.Migrations
 {
     [DbContext(typeof(BillContext))]
-    [Migration("20201121153118_CreateBillDB")]
+    [Migration("20201121154320_CreateBillDB")]
     partial class CreateBillDB
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -57,6 +57,9 @@ namespace FinancesAppDLL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("createdate")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("name")
                         .HasColumnType("TEXT");
 
@@ -70,6 +73,9 @@ namespace FinancesAppDLL.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("createdate")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("name")
                         .HasColumnType("TEXT");

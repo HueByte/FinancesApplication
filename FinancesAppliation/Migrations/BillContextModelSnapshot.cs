@@ -55,6 +55,9 @@ namespace FinancesAppDLL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<DateTime>("createdate")
+                        .HasColumnType("TEXT");
+
                     b.Property<string>("name")
                         .HasColumnType("TEXT");
 
@@ -68,6 +71,9 @@ namespace FinancesAppDLL.Migrations
                     b.Property<int>("id")
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
+
+                    b.Property<DateTime>("createdate")
+                        .HasColumnType("TEXT");
 
                     b.Property<string>("name")
                         .HasColumnType("TEXT");

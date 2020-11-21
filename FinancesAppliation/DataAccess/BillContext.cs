@@ -11,6 +11,7 @@ namespace FinancesAppDLL.DataAccess
         public DbSet<Bills> Bills { get; set; }
         public DbSet<People> People { get; set; }
         public DbSet<Shops> Shops { get; set; }
+        
         protected override void OnConfiguring (DbContextOptionsBuilder optionsBuilder)
         {
             //TODO-Change Data Source

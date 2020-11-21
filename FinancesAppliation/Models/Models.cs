@@ -22,10 +22,12 @@ namespace FinancesAppDLL.Models
     {
         public int id { get; set; }
         public string name { get; set; }
+        public DateTime createdate { get; set; }
     }
     public class Shops
     {
         public int id { get; set; }
         public string name { get; set; }
+        public DateTime createdate { get; set; }
     }
 }

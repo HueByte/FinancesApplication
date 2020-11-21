@@ -13,7 +13,8 @@ namespace FinancesAppDLL.Migrations
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    name = table.Column<string>(type: "TEXT", nullable: true)
+                    name = table.Column<string>(type: "TEXT", nullable: true),
+                    createdate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
@@ -26,7 +27,8 @@ namespace FinancesAppDLL.Migrations
                 {
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
-                    name = table.Column<string>(type: "TEXT", nullable: true)
+                    name = table.Column<string>(type: "TEXT", nullable: true),
+                    createdate = table.Column<DateTime>(type: "TEXT", nullable: false)
                 },
                 constraints: table =>
                 {
