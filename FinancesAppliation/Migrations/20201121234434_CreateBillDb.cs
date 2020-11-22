@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FinancesAppDLL.Migrations
 {
-    public partial class CreateBillDB : Migration
+    public partial class CreateBillDb : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -42,21 +42,20 @@ namespace FinancesAppDLL.Migrations
                     id = table.Column<int>(type: "INTEGER", nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     money = table.Column<decimal>(type: "TEXT", nullable: false),
-                    butdate = table.Column<DateTime>(type: "TEXT", nullable: false),
+                    buydate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     createdate = table.Column<DateTime>(type: "TEXT", nullable: false),
                     PersonId = table.Column<int>(type: "INTEGER", nullable: false),
-                    Peopleid = table.Column<int>(type: "INTEGER", nullable: true),
                     ShopsId = table.Column<int>(type: "INTEGER", nullable: false)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Bills", x => x.id);
                     table.ForeignKey(
-                        name: "FK_Bills_People_Peopleid",
-                        column: x => x.Peopleid,
+                        name: "FK_Bills_People_PersonId",
+                        column: x => x.PersonId,
                         principalTable: "People",
                         principalColumn: "id",
-                        onDelete: ReferentialAction.Restrict);
+                        onDelete: ReferentialAction.Cascade);
                     table.ForeignKey(
                         name: "FK_Bills_Shops_ShopsId",
                         column: x => x.ShopsId,
@@ -66,9 +65,9 @@ namespace FinancesAppDLL.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Bills_Peopleid",
+                name: "IX_Bills_PersonId",
                 table: "Bills",
-                column: "Peopleid");
+                column: "PersonId");
 
             migrationBuilder.CreateIndex(
                 name: "IX_Bills_ShopsId",

@@ -3,12 +3,108 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:UserInterface"
+              xmlns:local="clr-namespace:UserInterface"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Button Content="Button" HorizontalAlignment="Left" Margin="337,206,0,0" VerticalAlignment="Top" Click="Button_Click"/>
-        <TextBox x:Name="boxtext" HorizontalAlignment="Left" Margin="357,163,0,0" Text="TextBox" TextWrapping="Wrap" VerticalAlignment="Top" Width="120"/>
+        Title="Dashboard" Height="1000" Width="1900"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" 
+        ResizeMode="NoResize"
+        AllowsTransparency="True" Background="{x:Null}"
+        >
+    <Window.Resources>
+
+    </Window.Resources>
+
+
+    <Grid Background="#424242">
+        <Grid x:Name="MainGrid" Background="#FF1B1B1B" HorizontalAlignment="Center" Width="1900">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300"/>
+                <ColumnDefinition Width="1600"/>
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="40"/>
+                <RowDefinition Height="900"/>
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <Grid x:Name="Dashboard" Grid.Row="1" Grid.Column="1" Grid.RowSpan="2" >
+                <Frame Source="Pages/Dashboard.xaml">
+                </Frame>
+
+
+            </Grid>
+            <Grid Grid.Row="1" Grid.RowSpan="2" Background="#FF2C2C2C"/>
+        </Grid>
+
+
+        <Grid x:Name="ToolDock" Height="40" Background="#FF292828" VerticalAlignment="Top" Margin="0,0,0,0" MouseDown="ToolDock_MouseDown" >
+
+            <Grid x:Name="Close_Button" HorizontalAlignment="Right" Width="40" Margin="1782,0,0,0" MouseDown="Close_Button_Click">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/toolbarclose.png"/>
+                </Grid.Background>
+                <Grid.Style>
+                    <Style TargetType="Grid">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames  Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.5"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.5"/>
+                                                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+            <Grid x:Name="Close_Button_Copy" HorizontalAlignment="Left" Width="40" Margin="1815,0,0,0" MouseDown="Minimize_Button_Click">
+                <Grid.Background>
+                    <ImageBrush ImageSource="/Assets/toolbarminimize.png"/>
+                </Grid.Background>
+                <Grid.Style>
+                    <Style TargetType="{x:Type Grid}">
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Trigger.EnterActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames  Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="1"/>
+                                                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="0.5"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.EnterActions>
+                                <Trigger.ExitActions>
+                                    <BeginStoryboard>
+                                        <Storyboard>
+                                            <DoubleAnimationUsingKeyFrames Storyboard.TargetProperty="(UIElement.Opacity)">
+                                                <EasingDoubleKeyFrame KeyTime="00:00:00" Value="0.5"/>
+                                                <EasingDoubleKeyFrame KeyTime="00:00:00.2000000" Value="1"/>
+                                            </DoubleAnimationUsingKeyFrames>
+                                        </Storyboard>
+                                    </BeginStoryboard>
+                                </Trigger.ExitActions>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Grid.Style>
+            </Grid>
+        </Grid>
 
     </Grid>
 </Window>

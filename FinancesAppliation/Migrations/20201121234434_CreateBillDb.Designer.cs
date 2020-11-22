@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FinancesAppDLL.Migrations
 {
     [DbContext(typeof(BillContext))]
-    [Migration("20201121154320_CreateBillDB")]
-    partial class CreateBillDB
+    [Migration("20201121234434_CreateBillDb")]
+    partial class CreateBillDb
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -24,16 +24,13 @@ namespace FinancesAppDLL.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<int?>("Peopleid")
-                        .HasColumnType("INTEGER");
-
                     b.Property<int>("PersonId")
                         .HasColumnType("INTEGER");
 
                     b.Property<int>("ShopsId")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("butdate")
+                    b.Property<DateTime>("buydate")
                         .HasColumnType("TEXT");
 
                     b.Property<DateTime>("createdate")
@@ -44,7 +41,7 @@ namespace FinancesAppDLL.Migrations
 
                     b.HasKey("id");
 
-                    b.HasIndex("Peopleid");
+                    b.HasIndex("PersonId");
 
                     b.HasIndex("ShopsId");
 
@@ -87,9 +84,11 @@ namespace FinancesAppDLL.Migrations
 
             modelBuilder.Entity("FinancesAppDLL.Models.Bills", b =>
                 {
-                    b.HasOne("FinancesAppDLL.Models.People", "People")
+                    b.HasOne("FinancesAppDLL.Models.People", "Person")
                         .WithMany()
-                        .HasForeignKey("Peopleid");
+                        .HasForeignKey("PersonId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("FinancesAppDLL.Models.Shops", "Shops")
                         .WithMany()
@@ -97,7 +96,7 @@ namespace FinancesAppDLL.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("People");
+                    b.Navigation("Person");
 
                     b.Navigation("Shops");
                 });

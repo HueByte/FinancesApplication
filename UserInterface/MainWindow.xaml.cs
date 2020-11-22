@@ -29,8 +29,26 @@ namespace UserInterface
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-           
-           
+
+
         }
+
+        private void ToolDock_MouseDown(object sender, MouseButtonEventArgs e)
+        {
+            DragMove();
+        }
+
+
+        private void Close_Button_Click(object sender, MouseButtonEventArgs e)
+        {
+            Close();
+        }
+
+        private void Minimize_Button_Click(object sender, MouseButtonEventArgs e)
+        {
+            this.WindowState = WindowState.Minimized;
+        }
+
+        
     }
 }

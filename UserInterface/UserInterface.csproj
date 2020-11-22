@@ -7,15 +7,27 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Assets\toolbarclose.png" />
+    <None Remove="Assets\toolbarminimize.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Extended.Wpf.Toolkit" Version="4.0.1" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="5.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Design" Version="5.0.0">
       <PrivateAssets>all</PrivateAssets>
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
+    <PackageReference Include="SciChart" Version="6.2.1.13304" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\FinancesAppliation\FinancesAppDLL.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Assets\toolbarclose.png" />
+    <Resource Include="Assets\toolbarminimize.png" />
   </ItemGroup>
 
 </Project>
