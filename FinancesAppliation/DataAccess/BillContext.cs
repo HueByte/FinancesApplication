@@ -6,7 +6,7 @@ using System.Text;
 
 namespace FinancesAppDLL.DataAccess
 {
-    public class BillContext :DbContext 
+    public class BillContext : DbContext 
     {
         public DbSet<Bills> Bills { get; set; }
         public DbSet<People> People { get; set; }

@@ -6,12 +6,18 @@ using System.Text;
 
 namespace FinancesAppDLL.DataManagment
 {
-    public class MonthSum
+    public class MonthSum : IMonthSum
     {
+        private BillContext context;
+
+        public MonthSum(BillContext _context)
+        {
+            context = _context;
+        }
+
         public decimal monthSum(DateTime month)
         {
             decimal sum=0;
-            var context = new BillContext();
             var billinmonth = context.Bills
                              .Where(s => s.buydate.Month == month.Month)
                               .ToList();
